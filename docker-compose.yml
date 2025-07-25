@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  tarantool:
+    image: tarantool/tarantool:latest
+    container_name: tarantool-db
+    ports:
+      - "3301:3301"    # TCP порт для подключений
+    volumes:
+      - ./init.lua:/opt/tarantool/init.lua
+    command: tarantool /opt/tarantool/init.lua
